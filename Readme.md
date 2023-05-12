@@ -9,7 +9,7 @@
 1. **Clonar el repositorio**
 
 ```
-https://github.com/xsha256/examenPython
+https://github.com/xsha256/FirstAssesmentPython
 ```
 
 2. **Comprobar que la versión de Python instalada coincida con la del proyecto:**
