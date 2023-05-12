@@ -2,9 +2,9 @@ from flask import Flask, request, render_template
 import os
 import random
 import platform
-from clases.accion import Accion 
-from clases.comedia import Comedia 
-from clases.drama import Drama
+from clases.accion import * 
+from clases.comedia import * 
+from clases.drama import *
 
 app = Flask(__name__,template_folder='html')
 
@@ -16,6 +16,7 @@ def películas():
 def mostrar_películas():
  # Obtener la película seleccionada por el usuario
     nombre = request.form['película']
+    # pelicula_ingresada = None 
 
  # Insertar el código aquí
     if nombre == "Acción":
@@ -32,7 +33,7 @@ def mostrar_películas():
         pelicula_ingresada = Drama(nombre, anyo, tema)
 
  # Renderizar la página de películas con la película seleccionada
-    return render_template("películas.html", película=pelicula_ingresada)
+    return render_template("peliculas.html", película=pelicula_ingresada)
 
 
 if __name__ == '__main__':

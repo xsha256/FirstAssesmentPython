@@ -17,4 +17,4 @@ class Comedia(Pelicula):
         self.director = director
 
     def descripcion(self):
-        print(f"La comedia '{self.nombre}', estrenada en {self.anyo}, fue dirigida por {self.director}. Es una película divertida y con un buen sentido del humor.")
+        return(f"La comedia '{self.nombre}', estrenada en {self.anyo}, fue dirigida por {self.director}. Es una película divertida y con un buen sentido del humor.")

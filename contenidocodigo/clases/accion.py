@@ -15,4 +15,4 @@ class Accion(Pelicula):
         self.protagonista = protagonista
 
     def descripcion(self):
-        print(f"La película de acción '{self.nombre}', estrenada en {self.anyo}, cuenta con el protagonismo de {self.protagonista}. Es una película emocionante y llena de acción.")
+        return(f"La película de acción '{self.nombre}', estrenada en {self.anyo}, cuenta con el protagonismo de {self.protagonista}. Es una película emocionante y llena de acción.")
