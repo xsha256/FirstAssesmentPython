@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Información de la película</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+</head>
+
+<body>
+    <fieldset>
+        <legend>Información de películas</legend>
+        <div class="form-group row">
+            {% if película %}
+            <p><strong>Nombre:</strong> {{ película.nombre }}</p>
+            <p><strong>Año:</strong> {{ película.anyo }}</p>
+            {% if (película.Nombre == "Acción") %}
+            <p><strong>Protagonista:</strong> {{ película.protagonista }}</p>
+            {% elif (película.Nombre== "Comédia") %}
+            <p><strong>Director:</strong> {{ película.director }}</p>
+            {% elif (película.Nombre == "Drama") %}
+            <p><strong>Dulzor:</strong> {{ película.tema }}</p>
+            {% endif %}
+            <p><strong>Descripcion:</strong> {{ película.descripcion() }}</p>
+            {% else %}
+            <p>La película seleccionada no fue encontrada en la lista.</p>
+            {% endif %}
+            <form method="get" action="/">
+                <button type="submit" class="btn btn-primary">Mas películas</button>
+            </form>
+        </div>
+    </fieldset>
+</body>
+</html>

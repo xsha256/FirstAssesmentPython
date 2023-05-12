@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Información de películas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+</head>
+
+<body>
+  <form method="post" action="/películas">
+    <legend>Información de películas</legend>
+    <fieldset  class="d-grid" >
+      <label for="película">Selecciona una película:</label>
+      <select id="película" name="película" class="col-form-label col-form-label-sm">
+        <option value="Acción">Acción</option>
+        <option value="Comédia">Comédia</option>
+        <option value="Drama">Drama</option>
+      </select>
+      <label for="anyo" class="col-form-label col-form-label-sm">Año:</label>
+      <input type="number" id="anyo" name="anyo" >
+      <div id="atributos">
+        <label for="protagonista" class="col-form-label col-form-label-sm">Protagonista:</label>
+        <input type="text" id="protagonista" name="protagonista" >
+      </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Revisar</button>
+  </form>
+
+  <script>
+    const películaselect = document.getElementById("película");
+    const atributosDiv = document.getElementById("atributos");
+
+    function mostrarAtributos() {
+      const película = películaselect.value;
+      atributosDiv.innerHTML = "";
+
+      if (película === "Acción") {
+        atributosDiv.innerHTML += `
+         <label for="protagonista" class="col-form-label col-form-label-sm">Protagonista:</label>
+        <input type="text" id="protagonista" name="protagonista" >
+          `;
+      } else if (película === "Comédia") {
+        atributosDiv.innerHTML += `
+            <label for="director" class="col-form-label col-form-label-sm">Director:</label>
+            <input type="text" id="director" name="director">
+          `;
+      } else if (película === "Drama") {
+        atributosDiv.innerHTML += `
+            <label for="tema" class="col-form-label col-form-label-sm">Tema:</label>
+            <input type="text" id="tema" name="tema">
+          `;
+      }
+    }
+    películaselect.addEventListener("change", mostrarAtributos);
+  </script>
+</body>
+
+</html>
